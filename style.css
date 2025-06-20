@@ -10,67 +10,18 @@ body {
   position: relative;
 }
 
-/* ESCUDO */
-.escudo {
+.escudo.real {
   width: 200px;
-  height: 180px;
-  background: white;
-  border: 4px solid black;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  text-align: center;
+  cursor: pointer;
   animation: surgirEscudo 1.5s ease-out forwards;
   transform: scale(0);
-  cursor: pointer;
-  transition: border-color 0.3s;
 }
 
-.escudo h1 {
-  margin: 10px 0 0;
-  font-size: 28px;
-  font-weight: bold;
-  color: black;
-}
-
-.faixa {
-  height: 30px;
+.escudo.real img {
   width: 100%;
+  display: block;
 }
 
-.vermelho {
-  background-color: red;
-}
-
-.preto {
-  background-color: black;
-}
-
-.triangulos {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.triangulo {
-  width: 0;
-  height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 40px solid;
-}
-
-.triangulo.vermelho {
-  border-bottom-color: red;
-}
-
-.triangulo.preto {
-  border-bottom-color: black;
-}
-
-/* FRASE */
 .frase {
   margin-top: 30px;
   font-size: 18px;
@@ -88,43 +39,23 @@ body {
   animation: fadeIn 1s ease-out;
 }
 
-/* ANIMAÇÕES */
-@keyframes surgirEscudo {
-  to {
-    transform: scale(1);
-  }
-}
-
+@keyframes surgirEscudo { to { transform: scale(1); } }
 @keyframes aparecerFrase {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
-
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-5px); }
-  40% { transform: translateX(5px); }
-  60% { transform: translateX(-5px); }
-  80% { transform: translateX(5px); }
+  0%,100% { transform: translateX(0); }
+  20%,60% { transform: translateX(-5px); }
+  40%,80% { transform: translateX(5px); }
 }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.escudo.ativo {
+.escudo.real.ativo {
   animation: shake 0.5s;
-  border-color: red;
+  transform: scale(1.05);
 }
 
-/* CORAÇÕES */
 .coração {
   position: absolute;
   font-size: 24px;
@@ -134,15 +65,7 @@ body {
 }
 
 @keyframes flutuar {
-  0% {
-    transform: translateY(100vh) scale(1);
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10vh) scale(1.5);
-    opacity: 0;
-  }
+  0% { transform: translateY(100vh) scale(1); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
 }
